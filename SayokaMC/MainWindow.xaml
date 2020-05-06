@@ -1,0 +1,44 @@
+﻿<Window x:Class="SayokaMC.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:shell="http://schemas.microsoft.com/winfx/2006/xaml/presentation/shell"
+        xmlns:local="clr-namespace:SayokaMC"
+        mc:Ignorable="d"
+        Title="SayokaLauncher" Height="450" Width="789" WindowStartupLocation="CenterScreen" MinWidth="800" MinHeight="450" ResizeMode="CanMinimize" WindowStyle="None">
+
+    <Grid Height="450" VerticalAlignment="Bottom" MouseLeftButtonDown="MoveWindow" >
+        <Grid.Background>
+            <ImageBrush ImageSource="anime1.jpg"/>
+        </Grid.Background>
+        <Button Content="Играть" HorizontalAlignment="Left" Margin="720,417,0,0" VerticalAlignment="Top" Width="67" IsDefault="True" Cursor="Hand" Height="23" FontFamily="Minecraft 1.1" FontSize="11" Foreground="Black" OpacityMask="#B2FFFFFF"/>
+        <ComboBox HorizontalAlignment="Left" Margin="555,417,0,0" VerticalAlignment="Top" Width="157" Height="23" SelectedIndex="0" Cursor="Hand" FontFamily="Minecraft 1.1" FontSize="11" Foreground="Black" OpacityMask="#B2FFFFFF">
+            <ComboBoxItem Content="Выберите версию" HorizontalAlignment="Left" Width="155" IsEnabled="False"/>
+            <ComboBoxItem Content="Последний снапшот" HorizontalAlignment="Left" Width="155"/>
+            <ComboBoxItem Content="Последняя версия" HorizontalAlignment="Left" Width="155"/>
+            <ComboBoxItem Content="Minecraft 1.15.2" HorizontalAlignment="Left" Width="155"/>
+            <ComboBoxItem Content="Minecraft 1.14.4" HorizontalAlignment="Left" Width="155"/>
+            <ComboBoxItem Content="Minecraft 1.13.2" HorizontalAlignment="Left" Width="155"/>
+            <ComboBoxItem Content="Minecraft 1.12.2" HorizontalAlignment="Left" Width="155"/>
+            <ComboBoxItem Content="Forge 1.12.2" HorizontalAlignment="Left" Width="155"/>
+        </ComboBox>
+        <TextBox Style="{StaticResource placeHolder}" Tag="Ник в игре" HorizontalAlignment="Left" Height="23" Margin="15,417,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" FontFamily="Minecraft 1.1" FontSize="11" TextAlignment="Center" Foreground="Black" OpacityMask="#B2FFFFFF"/>
+        <GroupBox Header="Новости" HorizontalAlignment="Left" Height="374" VerticalAlignment="Top" Width="535" Margin="15,36,0,0" FontFamily="Minecraft 1.1" FontSize="11" OpacityMask="#B2000000">
+            <Label Content="В Alpha релизе нету новостей" HorizontalAlignment="Left" Margin="10,10,-2,-11" VerticalAlignment="Top" Height="351" Width="515" OpacityMask="#B2000000"/>
+
+        </GroupBox>
+        <GroupBox Header="Меню" HorizontalAlignment="Left" Height="374" Margin="555,36,0,0" VerticalAlignment="Top" Width="232" FontFamily="Minecraft 1.1" FontSize="11" Foreground="White" OpacityMask="#B2000000">
+            <CheckBox Content="Отображать все промежуточные версии" HorizontalAlignment="Left" VerticalAlignment="Top" FontSize="11" FontWeight="Light" TextOptions.TextFormattingMode="Display" Foreground="White" OpacityMask="#B2000000"/>
+        </GroupBox>
+        <Button Content="Загрузить скин" HorizontalAlignment="Left" Margin="140,417,0,0" VerticalAlignment="Top" Width="115" Height="23" Cursor="Hand" FontFamily="Minecraft 1.1" FontSize="11" Foreground="Black" OpacityMask="#B2FFFFFF" AutomationProperties.HelpText="Загрузка скина. В Альфа версии недоступно">
+            <Button.ToolTip>
+                <ToolTip>
+                    Загрузка скина. (Недоступно в Alpha версии)
+                </ToolTip>
+            </Button.ToolTip>
+        </Button>
+        <Button x:Name="btn_close" Content="&#xE711;" HorizontalAlignment="Left" Margin="770,8,0,0" VerticalAlignment="Top" Width="20" FontFamily="Segoe MDL2 Assets" Height="20" Click="OnCloseClick"/>
+        <Button x:Name="btn_minimize" Content="&#xE949;" HorizontalAlignment="Left" Margin="745,8,0,0" VerticalAlignment="Top" Width="20" FontFamily="Segoe MDL2 Assets" Height="20" Click="OnMinimizeClick"/>
+    </Grid>
+</Window>
