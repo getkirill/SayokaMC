@@ -12,8 +12,20 @@
         <Grid.Background>
             <ImageBrush ImageSource="anime1.jpg"/>
         </Grid.Background>
-        <Button Content="Играть" HorizontalAlignment="Left" Margin="720,417,0,0" VerticalAlignment="Top" Width="67" IsDefault="True" Cursor="Hand" Height="23" FontFamily="Minecraft 1.1" FontSize="11" Foreground="Black" OpacityMask="#B2FFFFFF"/>
+        <Button Content="Играть" HorizontalAlignment="Left" Margin="720,417,0,0" VerticalAlignment="Top" Width="67" IsDefault="True" Cursor="Hand" Height="23" FontFamily="Minecraft 1.1" FontSize="11" Foreground="Black" OpacityMask="#B2FFFFFF">
+            <Button.ToolTip>
+                <ToolTip>
+                    Запускает или устанавливает выбранную версию
+                </ToolTip>
+            </Button.ToolTip>
+        </Button>
         <ComboBox HorizontalAlignment="Left" Margin="555,417,0,0" VerticalAlignment="Top" Width="157" Height="23" SelectedIndex="0" Cursor="Hand" FontFamily="Minecraft 1.1" FontSize="11" Foreground="Black" OpacityMask="#B2FFFFFF">
+            <ComboBox.ToolTip>
+                <ToolTip>
+                    Выбор версии к запуску.
+                    Если версия не была установлена локально, будет запущена загрузка.
+                </ToolTip>
+            </ComboBox.ToolTip>
             <ComboBoxItem Content="Выберите версию" HorizontalAlignment="Left" Width="155" IsEnabled="False"/>
             <ComboBoxItem Content="Последний снапшот" HorizontalAlignment="Left" Width="155"/>
             <ComboBoxItem Content="Последняя версия" HorizontalAlignment="Left" Width="155"/>

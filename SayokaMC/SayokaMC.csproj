@@ -59,6 +59,15 @@
     <Prefer32Bit>true</Prefer32Bit>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="DotNetZip">
+      <HintPath>..\..\minesharp\MineSharp\MineSharp.DebugClient\bin\Release\DotNetZip.dll</HintPath>
+    </Reference>
+    <Reference Include="MineSharp.Common">
+      <HintPath>..\..\minesharp\MineSharp\MineSharp.DebugClient\bin\Release\MineSharp.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\..\minesharp\MineSharp\MineSharp.DebugClient\bin\Release\Newtonsoft.Json.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Xml" />
