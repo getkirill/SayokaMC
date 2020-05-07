@@ -23,6 +23,7 @@ namespace SayokaMC
         public MainWindow()
         {
             InitializeComponent();
+            //MinecraftManager.LaunchMinecraft("1.12.2", "kraskaska");
         }
 
         private void OnCloseClick(object sender, RoutedEventArgs e)
@@ -38,6 +39,13 @@ namespace SayokaMC
         private void MoveWindow(object sender, MouseButtonEventArgs e)
         {
             Application.Current.MainWindow.DragMove();
+        }
+
+        private void launchmc(object sender, RoutedEventArgs e)
+        {
+            var installedMC = MessageBox.Show("Извеняемся за лишние вопросы, лаунчер находится в бете\nБыл ли установлен Minecraft с помощью этого лаунчера раньше?", "SayokaLuncher", MessageBoxButton.YesNo, MessageBoxImage.Question);
+            if (installedMC == MessageBoxResult.No) MinecraftManager.DownloadMinecraft();
+            if (nickname.Text.Length != 0) MinecraftManager.LaunchMinecraft("1.12.2", nickname.Text); else MessageBox.Show("Введите ник!", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Warning);
         }
     }
 }

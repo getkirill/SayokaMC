@@ -3,54 +3,33 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using MineSharp.Common.Game;
 
 namespace SayokaMC
 {
     class MinecraftManager
     {
-        PackageManagement packageManagement;
-        public MinecraftManager()
+        public static void LaunchMinecraft(string version, string username)
         {
-            packageManagement = new PackageManagement();
-            Console.WriteLine("MinecraftManager initialized");
+            var mc = new LauncherFrame();
+            mc.Version = version;
+            mc.Username = username;
+            mc.UserType = "mojang";
+            mc.MinRamMb = 1024;
+            mc.MaxRamMb = 2048;
+            mc.Uuid = "f4eb5883d50c4d49b89ae0458ce76740";
+            mc.UseForge = false;
+            mc.Height = 480;
+            mc.Width = 800;
+            mc.MavenPath = "%appdata%/.sayokamc/mvn/bin";
+
+            //mc.DownloadMinecraft("c:/.sayokamc/", "c:/.sayokamc/natives", "c:/.sayokamc/assets", "c:/.sayokamc/libs");
+            mc.RunGame("c:/.sayokamc/", "c:/.sayokamc/natives", "c:/.sayokamc/assets", "c:/.sayokamc/libs");
         }
-        class PackageManagement
+        public static void DownloadMinecraft()
         {
-            ///<summary>
-            ///Manage installed packages
-            ///</summary>
-            public PackageManagement()
-            {
-                checkInstalledPackages();
-            }
-            public StatusCode checkInstalledPackages()
-            {
-                StatusCode code = new StatusCode(0, "Packages successfully checked.");
-                return code;
-            }
-        }
-        struct StatusCode
-        {
-            int statusCode;
-            string note;
-            public StatusCode(int statusCode) {
-                this.statusCode = statusCode;
-                this.note = "";
-            }
-            public StatusCode(int statusCode, string note)
-            {
-                this.statusCode = statusCode;
-                this.note = note;
-            }
-            public void set(int statusCode)
-            {
-                this.statusCode = statusCode;
-            }
-            public void set(int statusCode, string note)
-            {
-                this.statusCode = statusCode;
-                this.note = note;
-            }
+            var mc = new LauncherFrame();
+            mc.DownloadMinecraft("c:/.sayokamc/", "c:/.sayokamc/natives", "c:/.sayokamc/assets", "c:/.sayokamc/libs");
         }
     }
 }

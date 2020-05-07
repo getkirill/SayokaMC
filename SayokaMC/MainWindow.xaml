@@ -12,18 +12,19 @@
         <Grid.Background>
             <ImageBrush ImageSource="anime1.jpg"/>
         </Grid.Background>
-        <Button Content="Играть" HorizontalAlignment="Left" Margin="720,417,0,0" VerticalAlignment="Top" Width="67" IsDefault="True" Cursor="Hand" Height="23" FontFamily="Minecraft 1.1" FontSize="11" Foreground="Black" OpacityMask="#B2FFFFFF">
+        <Button x:Name="play" Content="Играть" HorizontalAlignment="Left" Margin="720,417,0,0" VerticalAlignment="Top" Width="67" IsDefault="True" Cursor="Hand" Height="23" FontFamily="Minecraft 1.1" FontSize="11" Foreground="Black" OpacityMask="#B2FFFFFF" Click="launchmc">
             <Button.ToolTip>
                 <ToolTip>
                     Запускает или устанавливает выбранную версию
                 </ToolTip>
             </Button.ToolTip>
         </Button>
-        <ComboBox HorizontalAlignment="Left" Margin="555,417,0,0" VerticalAlignment="Top" Width="157" Height="23" SelectedIndex="0" Cursor="Hand" FontFamily="Minecraft 1.1" FontSize="11" Foreground="Black" OpacityMask="#B2FFFFFF">
+        <ComboBox HorizontalAlignment="Left" Margin="555,417,0,0" VerticalAlignment="Top" Width="157" Height="23" SelectedIndex="6" Cursor="Hand" FontFamily="Minecraft 1.1" FontSize="11" Foreground="Black" OpacityMask="#B2FFFFFF" IsEnabled="False">
             <ComboBox.ToolTip>
                 <ToolTip>
                     Выбор версии к запуску.
                     Если версия не была установлена локально, будет запущена загрузка.
+                    (Выбор версии пока что недоступен)
                 </ToolTip>
             </ComboBox.ToolTip>
             <ComboBoxItem Content="Выберите версию" HorizontalAlignment="Left" Width="155" IsEnabled="False"/>
@@ -35,7 +36,7 @@
             <ComboBoxItem Content="Minecraft 1.12.2" HorizontalAlignment="Left" Width="155"/>
             <ComboBoxItem Content="Forge 1.12.2" HorizontalAlignment="Left" Width="155"/>
         </ComboBox>
-        <TextBox Style="{StaticResource placeHolder}" Tag="Ник в игре" HorizontalAlignment="Left" Height="23" Margin="15,417,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" FontFamily="Minecraft 1.1" FontSize="11" TextAlignment="Center" Foreground="Black" OpacityMask="#B2FFFFFF"/>
+        <TextBox x:Name="nickname" Style="{StaticResource placeHolder}" Tag="Ник в игре" HorizontalAlignment="Left" Height="23" Margin="15,417,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" FontFamily="Minecraft 1.1" FontSize="11" TextAlignment="Center" Foreground="Black" OpacityMask="#B2FFFFFF"/>
         <GroupBox Header="Новости" HorizontalAlignment="Left" Height="374" VerticalAlignment="Top" Width="535" Margin="15,36,0,0" FontFamily="Minecraft 1.1" FontSize="11" OpacityMask="#B2000000">
             <Label Content="В Alpha релизе нету новостей" HorizontalAlignment="Left" Margin="10,10,-2,-11" VerticalAlignment="Top" Height="351" Width="515" OpacityMask="#B2000000"/>
 
