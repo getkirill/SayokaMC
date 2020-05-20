@@ -1,5 +1,7 @@
-﻿using System;
+﻿
+using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -20,10 +22,16 @@ namespace SayokaMC
     /// </summary>
     public partial class MainWindow : Window
     {
+        [System.Runtime.InteropServices.DllImport("kernel32.dll")]
+        static extern bool GetPhysicallyInstalledSystemMemory(out long TotalMemoryInKilobytes);
         public MainWindow()
         {
             InitializeComponent();
-            //MinecraftManager.LaunchMinecraft("1.12.2", "kraskaska");
+            this.IsEnabled = false;
+            this.Hide();
+            fetchingAssetsModal.fetch();
+            this.IsEnabled = true;
+            this.Show();
         }
 
         private void OnCloseClick(object sender, RoutedEventArgs e)
@@ -43,9 +51,27 @@ namespace SayokaMC
 
         private void launchmc(object sender, RoutedEventArgs e)
         {
-            var installedMC = MessageBox.Show("Извеняемся за лишние вопросы, лаунчер находится в бете\nБыл ли установлен Minecraft с помощью этого лаунчера раньше?", "SayokaLuncher", MessageBoxButton.YesNo, MessageBoxImage.Question);
-            if (installedMC == MessageBoxResult.No) MinecraftManager.DownloadMinecraft();
-            if (nickname.Text.Length != 0) MinecraftManager.LaunchMinecraft("1.12.2", nickname.Text); else MessageBox.Show("Введите ник!", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Warning);
+            Console.WriteLine(version.Text);
+            if (nickname.Text.Length != 0) {
+                if (Directory.Exists("C:\\.sayokamc\\versions\\" + version.Text))
+                {
+                    MinecraftManager.LaunchMinecraft(version.Text, forge.IsEnabled, nickname.Text);
+                } else
+                {
+                    MessageBox.Show("Этой версии несуществует. Начинаем загрузку, предположительного времени окончания нету!", "SayokaLauncher", MessageBoxButton.OK, MessageBoxImage.Information);
+                    MinecraftManager.DownloadMinecraft(version.Text, forge.IsEnabled);
+                }
+            }
+            else MessageBox.Show("Введите ник!", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Warning);
+        }
+
+        private void checkVersion(object sender, SelectionChangedEventArgs e)
+        {
+            if (!Directory.Exists("C:\\.sayokamc\\versions\\" + version.Text))
+            {
+                play.Content = "Загрузить";
+            }
+            else play.Content = "Играть";
         }
     }
 }

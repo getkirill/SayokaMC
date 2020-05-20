@@ -1,0 +1,13 @@
+﻿<Window x:Class="SayokaMC.fetchingAssetsModal"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:SayokaMC"
+        mc:Ignorable="d"
+        Title="Загрузка данных" SizeToContent="WidthAndHeight" WindowStartupLocation="CenterOwner" Cursor="AppStarting" ResizeMode="NoResize" WindowStyle="ToolWindow">
+    <Grid Width="210" Height="57">
+        <TextBlock HorizontalAlignment="Left" Margin="10,10,0,0" TextWrapping="Wrap" Text="Идет загрузка данных, подождите" VerticalAlignment="Top" Cursor="None"/>
+        <ProgressBar HorizontalAlignment="Left" Height="10" Margin="10,31,0,0" VerticalAlignment="Top" Width="187" IsIndeterminate="True"/>
+    </Grid>
+</Window>

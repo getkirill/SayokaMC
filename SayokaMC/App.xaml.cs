@@ -15,7 +15,7 @@ namespace SayokaMC
     {
         public void OnCloseClick(object sender, EventArgs e)
         {
-            System.Windows.Application.Current.Shutdown();
+            Application.Current.Shutdown();
         }
     }
 }
